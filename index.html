@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>My Love</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+	<audio src="music/beautiful.mp3" autoplay="true" loop></audio>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<p><span class="keyword">当你打开这个网页的时候，应该是2017年的情人节了。</span><br />
+				  <span class="space"/><span class="keyword"></span><br />
+				  <span class="keyword">这些天，我一直在想要送一个什么给你呢？</span><br />
+				  <span class="space"/><span class="keyword"></span><br />
+				  <span class="keyword">情书？</span><br />
+				  <span class="space"/><span class="keyword"></span><br />
+				  <span class="keyword">No No No,这么缠绵的礼物会怎么能凸显我矮冷的气质。</span><br />
+				  <span class="space"/><span class="keyword"></span><br />
+				  <span class="keyword">手表？</span><br />
+				  <span class="space"/><span class="keyword"></span><br />
+				  <span class="keyword">不 不 不，这么easy的东西怎么可以体现我的心灵手巧。</span><br />
+				  <span class="comments">楼上臭不要脸，就是，就是！</span><br />
+				  <span class="space"/><span class="keyword"></span><br />
+				  <span class="keyword">写一个关于我们的小说？</span><br />
+				  <span class="space"/><span class="keyword"></span><br />
+				  <span class="keyword">嘿嘿，似乎是一个好主意。</span><br />
+				  <span class="space"/><span class="keyword"></span><br />
+				  <span class="keyword">然而，落笔几日，发现江郎才尽。。。</span><br />
+				  <span class="comments">咳咳咳，友情提示，江郎是之前有才方有尽之说，至于楼上嘛。。。</span><br />
+				  <span class="space"/><span class="keyword"></span><br />
+				  <span class="keyword">pass若干idea之后，终于决定做一个关于我们的网页。</span><br />
+				  <span class="comments">女王大人甚是英明，甚是英明。</span><br />
+				  <span class="space"/><span class="keyword"></span><br />
+			  <span class="keyword">闲话少说，点击下面的按钮进入我们的主题吧！</span></p>
+				<form name="form1" method="post" action="zhuti.html">
+				  <input type="submit" name="turn" id="turn" value="进入主题">
+			  </form>
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						狼爸爸，我们已经在一起
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						亲爱的，余生请多多指教。<br/>
+						<div class="signature">- 狼妈妈</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2011, 9, 3);
+		together.setHours(15);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
