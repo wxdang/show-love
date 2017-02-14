@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>狼爸爸和狼妈妈的爱巢</title>
+	<link rel="stylesheet" href="css/bootstrap.css" />
+	<link rel="stylesheet" href="css/opendressdoc.css" />
+	<link rel="stylesheet" href="src/prettify.css" />
+	<link rel="stylesheet" type="text/css" href="QQzone.css"/>
+</head>
+<body>
+<audio src="music/fengchuimailang.mp3" autoplay="true" loop></audio>
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class=" container">
+			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="brand" href="zhuti.html">My Love<sup>forever</sup></a>
+
+			<div class="nav-collapse collapse">
+				<ul class="nav">
+					<li>
+						<a href="photo.html">相册</a>
+					</li>
+					<li class="active">
+						<a href="zhuti.html">时光轴</a>
+					</li>
+					<li>
+						<a href="qiaoqiaohua.html">悄悄话</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="src/prettify.js"></script>
+<script type="text/javascript">
+	function anonymous(it) {
+		var outhtml = '<div>Hi ' + (it.name) + '!</div><div>' + (it.age || '') + '</div>';
+		return outhtml;
+	}
+	document.body.onload=function(){prettyPrint();};
+</script>
+<body>
+<div id="Con">
+    <dl>
+        <dt><img src="images/touxiang.jpg"/></dt>
+    </dl>
+    <div class="List">
+        <ul>
+            <li>
+                <div class="ListCon">
+				    <p align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/h.jpg" style="position:absolute;left:0px;top:0px;width:100%;height:100%;z-Index:-1; border-radius: 10px"/>既是悄悄话，当然是悄悄说与你听。</p>
+                    
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="js/jqueryshiguangz.js"></script>
+<script type="text/javascript">
+    /**
+     * 设计思路：每次滑动滚动条的时候，只加载在滚动条之前的li
+     */
+        $(".List ul li:lt(2)").show();                       //找到li序列号小于3的li显示出来，即0，1，2。加载前3个li
+        $(window).scroll(function()
+        {
+            var _top = $(this).scrollTop()+ $(window).height() -800; //滚动条的高度 + 浏览器窗口高度 - 200
+             console.log(_top);
+            $(".List ul li").each(function()
+            {
+                var _index = $(this).index()+2;   //获取当前li的下标+2
+                var _height = $(this).offset().top; //li与浏览器窗口顶部距离
+                console.log(_height);
+                if (_top < _height)
+                {
+                    $(".List ul li:lt("+ _index +")").show();
+                    return false;
+                }
+            });
+        });
+</script>
+</body>
+</html>
